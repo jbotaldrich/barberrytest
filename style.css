@@ -157,15 +157,39 @@ ul {
 /* ==========================================================================
    ABOUT & EDUCATION SECTION
    ========================================================================== */
+
 .about-section {
-    padding: 5rem 0;
-    background-color: var(--background-white);
+    padding: 6rem 0; /* Slightly increased padding to balance the layout */
+    
+    /* 1. Point to your image file path or web URL */
+    background-image: url('https://media.istockphoto.com/id/2167391083/vector/barberry-fall-branch-with-leaves-isolated-on-a-white-background-watercolor-autumn.jpg?s=1024x1024&w=is&k=20&c=prwr3OLYVxwBXk442g8dTzA-VB57bB0wdsMQuhvrolc='); 
+    
+    /* 2. Style configuration to keep the image crisp and centered */
+    background-size: cover;          /* Forces the image to fill the entire section */
+    background-position: center;     /* Centers the focus of your image */
+    background-repeat: no-repeat;    /* Prevents the image from tiling */
+    
+    position: relative;              /* Required to correctly anchor the overlay */
+}
+/* Creates a transparent overlay color tint over the background image */
+.about-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.92); /* 92% opaque white layer */
+    z-index: 1;
 }
 
+/* Forces the layout content to sit safely above the background tint layer */
 .about-container {
     display: grid;
     grid-template-columns: 1.2fr 1fr;
     gap: 5rem;
+    position: relative;
+    z-index: 2; 
 }
 
 .about-bio p {

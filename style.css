@@ -1,123 +1,287 @@
+/* ==========================================================================
+   CUSTOMIZABLE VARIABLES
+   Change colors, text alignments, and fonts right here!
+   ========================================================================== */
 :root {
-  --primary-color: #4A6B5D;
-  --secondary-color: #F4F1EA;
-  --text-dark: #2C3E35;
-  --text-light: #66756E;
-  --white: #FFFFFF;
+    /* Color Palette */
+    --primary-color: #2c4a3e;       /* Deep slate green (used for headers, links, buttons) */
+    --background-light: #fbf9f6;    /* Warm, minimalist cream backdrop */
+    --background-white: #ffffff;    /* Clear white container backgrounds */
+    --text-dark: #2d2d2d;           /* Soft charcoal for optimal readability */
+    --text-muted: #5a5a5a;          /* Lighter text for secondary captions */
+    --accent-color: #d4a373;        /* Soft gold/tan accent color */
+    
+    /* Typography */
+    --font-heading: 'Playfair Display', Georgia, serif;
+    --font-body: 'Plus Jakarta Sans', Arial, sans-serif;
+    
+    /* Layout */
+    --max-width: 1100px;
+    --header-height: 80px;
 }
 
+/* ==========================================================================
+   RESET & BASE STYLES
+   ========================================================================== */
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  color: var(--text-dark);
-  line-height: 1.6;
-  background-color: var(--white);
-}
-
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.5rem 5%;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.nav-links {
-  display: flex;
-  list-style: none;
-  gap: 1.5rem;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: var(--text-dark);
-  font-weight: 500;
-}
-
-.hero {
-  background-color: var(--secondary-color);
-  text-align: center;
-  padding: 5rem 1.5rem;
-}
-
-.hero h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  color: var(--primary-color);
-}
-
-.hero p {
-  font-size: 1.15rem;
-  color: var(--text-light);
-  max-width: 600px;
-  margin: 0 auto 2rem auto;
+    font-family: var(--font-body);
+    color: var(--text-dark);
+    background-color: var(--background-light);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
 }
 
 .container {
-  padding: 4rem 5%;
-  max-width: 1100px;
-  margin: 0 auto;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 2rem;
 }
 
-.bg-light {
-  background-color: var(--secondary-color);
-  max-width: 100%;
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    color: var(--primary-color);
+    font-weight: 400;
+    margin-bottom: 1rem;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--accent-color);
+}
+
+ul {
+    list-style: none;
+}
+
+/* ==========================================================================
+   HEADER & NAVIGATION
+   ========================================================================== */
+.site-header {
+    background-color: var(--background-white);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: var(--header-height);
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.main-nav ul {
+    display: flex;
+    gap: 2rem;
+}
+
+.main-nav a {
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+/* ==========================================================================
+   HERO SECTION
+   ========================================================================== */
+.hero-section {
+    padding: 6rem 0;
+    background-color: var(--background-light);
+}
+
+.hero-container {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.hero-image img {
+    width: 100%;
+    max-width: 380px;
+    height: auto;
+    border-radius: 4px;
+    display: block;
+    margin: 0 auto;
+}
+
+.hero-text h1 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+}
+
+.lead-text {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--background-white);
+    padding: 0.8rem 1.8rem;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: var(--accent-color);
+    color: var(--background-white);
+}
+
+/* ==========================================================================
+   ABOUT & EDUCATION SECTION
+   ========================================================================== */
+.about-section {
+    padding: 5rem 0;
+    background-color: var(--background-white);
+}
+
+.about-container {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 5rem;
+}
+
+.about-bio p {
+    font-size: 1.05rem;
+    margin-bottom: 1.5rem;
+}
+
+.education-list li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.education-list li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+}
+
+/* ==========================================================================
+   SERVICES SECTION
+   ========================================================================== */
+.services-section {
+    padding: 5rem 0;
+}
+
+.services-section h2 {
+    text-align: center;
+    margin-bottom: 3rem;
 }
 
 .services-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-  margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
 }
 
-.card {
-  background: var(--white);
-  padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.03);
+.service-card {
+    background-color: var(--background-white);
+    padding: 2.5rem;
+    border-radius: 4px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.01);
 }
 
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  max-width: 500px;
-  margin-top: 1.5rem;
+.service-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
 }
 
-form input, form textarea {
-  padding: 0.75rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-family: inherit;
+/* ==========================================================================
+   CONTACT SECTION
+   ========================================================================== */
+.contact-section {
+    padding: 5rem 0;
+    background-color: var(--background-white);
+    text-align: center;
 }
 
-.btn-primary, .btn-nav {
-  background-color: var(--primary-color);
-  color: var(--white);
-  padding: 0.75rem 1.5rem;
-  border: none;
-  border-radius: 4px;
-  text-decoration: none;
-  cursor: pointer;
-  display: inline-block;
+.contact-info {
+    margin: 2rem 0;
+    font-size: 1.1rem;
 }
 
-.hidden {
-  display: none;
+.contact-info p {
+    margin-bottom: 0.5rem;
 }
 
-footer {
-  text-align: center;
-  padding: 2rem;
-  font-size: 0.9rem;
-  color: var(--text-light);
-  border-top: 1px solid #eee;
+.crisis-disclaimer {
+    max-width: 700px;
+    margin: 3rem auto 0 auto;
+    padding-top: 2rem;
+    border-top: 1px solid #eee;
+    font-size: 0.9rem;
+    color: var(--text-muted);
 }
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+.site-footer {
+    background-color: var(--background-light);
+    padding: 2rem 0;
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    border-top: 1px solid #f0eeea;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN (Mobile Friendly Adjustments)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        height: auto;
+        padding: 1.5rem;
+        gap: 1rem;
+    }
+    
+    .hero-container, .about-container {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+    
+    .hero-text {
+        text-align: center;
+    }
+    
+    .hero-text h1 {
+        font-size: 2.2rem;
+    }
+    
+    .about-section {
+        padding: 3rem 0;
+    }
+}
+
